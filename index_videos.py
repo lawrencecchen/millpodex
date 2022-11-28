@@ -2,6 +2,7 @@ import os
 import glob
 import whisper
 from pathlib import Path
+import json
 
 model = whisper.load_model("base")
 audio_path = "audio"
@@ -20,4 +21,4 @@ for file in sorted(glob.glob(f"audio/**/*.mp3", recursive=True)):
     print(f"Transcribing {file_name}")
     result = model.transcribe(file, verbose=True)
     with open(out_path, "w") as f:
-        f.write(result.to_json())
+        f.write(json.dumps(result, indent=4))
