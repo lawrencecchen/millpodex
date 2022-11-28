@@ -1,0 +1,7 @@
+# python default gitignore for macos
+
+venv
+
+.DS_Store
+audio/
+transcripts/
